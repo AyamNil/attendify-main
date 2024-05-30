@@ -96,7 +96,7 @@ export const Dashboard: React.FC = () => {
 								color: 'white',
 							}}>
 							<IonText>
-								<p>Selamat {getTime(getLocalCalendar())}</p>
+								<p>Selamat {getTime()}</p>
 							</IonText>
 							<IonText>
 								<h1

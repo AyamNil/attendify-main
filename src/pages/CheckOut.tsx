@@ -28,6 +28,7 @@ import React, { useEffect, useState } from 'react';
 
 export const CheckOut: React.FC = () => {
 	const [ctime, setTime] = useState<string>();
+	const[clockOut, setClockOut] = useState<string>();
 
 	const getLocalCalendar = () => {
 		// Step 1:
@@ -58,6 +59,12 @@ export const CheckOut: React.FC = () => {
 			utcDate.toLocaleTimeString()
 		);
 	};
+
+	const handleClockOut = () => {
+		setClockOut(ctime)
+		console.log('Clock Out');
+		console.log(ctime);
+	}
 
 	setInterval(UpdateTime, 1000);
 
@@ -142,6 +149,7 @@ export const CheckOut: React.FC = () => {
 				<IonButton
 					color="attendify"
 					className="ion-text-center"
+					onClick={handleClockOut}
 					style={{
 						width: '100%',
 					}}>

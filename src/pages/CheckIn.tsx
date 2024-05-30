@@ -28,6 +28,7 @@ import React, { useEffect, useState } from 'react';
 
 export const CheckIn: React.FC = () => {
 	const [ctime, setTime] = useState<string>();
+	const [clockIn, setClockIn] = useState<string>();
 
 	const getLocalCalendar = () => {
 		// Step 1:
@@ -59,6 +60,12 @@ export const CheckIn: React.FC = () => {
 			utcDate.toLocaleTimeString()
 		);
 	};
+
+	const handleClockIn = () => {
+		setClockIn(ctime);
+		console.log('Clock In:', ctime);
+		
+	}
 
 	setInterval(UpdateTime, 1000);
 
@@ -143,6 +150,7 @@ export const CheckIn: React.FC = () => {
 				<IonButton
 					color="attendify"
 					className="ion-text-center"
+					onClick={handleClockIn}
 					style={{
 						width: '100%',
 					}}>
