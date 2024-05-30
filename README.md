@@ -1,3 +1,3 @@
 # Attendify Project
-yarn install
+yarn install <br/>
 yarn dev
