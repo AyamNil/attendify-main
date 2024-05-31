@@ -41,8 +41,37 @@ import { CreatePermit } from './pages/CreatePermit';
 import { PermitState } from './pages/PermitState';
 import { Summary } from './pages/Summary';
 import { Profile } from './pages/Profile';
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import firebase from 'firebase/compat/app';
 
 setupIonicReact();
+
+const config = {
+	apiKey: "AIzaSyAyAw3rsLwuSh1KzXLtO5OTxVSW2fy2f2s",
+	authDomain: "attendify-88a1e.firebaseapp.com",
+	projectId: "attendify-88a1e",
+	storageBucket: "attendify-88a1e.appspot.com",
+	messagingSenderId: "425923830618",
+	appId: "1:425923830618:web:0bb2f0182e8a63dd560963",
+	measurementId: "G-DBVKNHVE0V"
+  };
+
+  initializeApp(config);
+  const analytics = getAnalytics();
+//   const auth = getA
+  export async function loginUser(email: string, password: string) {
+	try {
+	  const res = await firebase.auth().signInWithEmailAndPassword(email, password);
+  
+	  console.log(res);
+	  return true;
+	} catch (error) {
+	  console.log(error);
+	  return false;
+	}
+  }
+  
 
 const App: React.FC = () => (
 	<IonApp>

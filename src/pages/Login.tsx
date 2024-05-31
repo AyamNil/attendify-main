@@ -18,6 +18,7 @@ import {
 } from '@ionic/react';
 import React, { useState } from 'react';
 // import { loginUser } from '../firebaseconfig';
+import {  loginUser }from '../App'; 
 
 const Login: React.FC = () => {
     const [userName, setUserName] = useState('');
@@ -25,15 +26,15 @@ const Login: React.FC = () => {
     const [company, setCompany] = useState('');
 
     async function handleLogin() {
-		// const res = await loginUser(userName, password);
+		const res = await loginUser(userName, password);
 		console.log('Username:', userName);
 		console.log('Password:',password);
 		console.log('Company:',company);
-		// if (res === true) {
-		// 	console.log('Login successful');
-		// } else {
-		// 	console.log('Login failed');
-		// }
+		if (res === true) {
+			console.log('Login successful');
+		} else {
+			console.log('Login failed');
+		}
 	}
 
     return (
